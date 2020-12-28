@@ -1,0 +1,15 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+
+
+<h1>{{ blog.title}}</h1>
+
+<p>{{blog.description|safe}}</p>
+<img src="{{blog.image.url}}"> 
+{% if blog.url %}
+<a href ="{{blog.url}}">Click Here for more </a>
+<h4>~{{blog.date|date:'F jS Y'}}~</h4>
+{% endif %}
+
+{%endblock%}

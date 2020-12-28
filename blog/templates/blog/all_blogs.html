@@ -1,0 +1,24 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+
+
+<div style="text-align:center"><h1>Be inspired. Be informed! </h1> </div>
+
+<h2>Elly has written {{blogs.count}} blog{{blogs.count|pluralize}}.</h2>
+
+{% for blog in blogs %}
+
+<a href="{% url 'blog:detail' blog.id %}"><h2>{{blog.title}}</h2></a>
+<p>{{blog.description|safe|truncatechars:100}}</p>
+<img src="{{blog.image.url}}" height= 140 > 
+{% if blog.url %}
+<a href ="{{blog.url}}">Click Here for more </a>
+<h4>{{blog.date|date:'M d Y'}}</h4>
+{% endif %}
+
+
+
+{% endfor %}
+
+{%endblock%}
